@@ -9,11 +9,11 @@
         "kevinrob/guzzle-cache-middleware": "^1.4",
         "ecomdev/magento-psr6-bridge": "^0.2.1",
         "symfony/stopwatch": "~4.0",
-        "bakame/psr7-csv-factory": "^1.0@dev",
+	"bakame/psr7-csv-factory": "dev-master@dev",
         "league/csv": "^9.1"
     },
     "type": "magento2-module",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "autoload": {
         "files": [
             "registration.php"
