@@ -43,10 +43,16 @@ class ExternalCategoryManagement extends AbstractRowModifier
     private $productCategoryMapping;
 
     /**
+     * @var string
+     */
+    private $externalAttrCode;
+
+    /**
      * @param ConsoleOutput             $consoleOutput
      * @param CategoryCollectionFactory $categoryCollectionFactory
      * @param ProductCollectionFactory  $productCollectionFactory
      * @param Log                       $log
+     * @param string                    $externalAttrCode
      * @param string[]                  $externalCategoryPathFilter
      */
     public function __construct(
@@ -54,6 +60,7 @@ class ExternalCategoryManagement extends AbstractRowModifier
         CategoryCollectionFactory $categoryCollectionFactory,
         ProductCollectionFactory $productCollectionFactory,
         Log $log,
+        $externalAttrCode = 'external_id',
         $externalCategoryPathFilter = []
     ) {
         parent::__construct($consoleOutput, $log);
@@ -61,6 +68,7 @@ class ExternalCategoryManagement extends AbstractRowModifier
         $this->categoryCollectionFactory = $categoryCollectionFactory;
         $this->productCollectionFactory = $productCollectionFactory;
         $this->externalCategoryPathFilter = $externalCategoryPathFilter;
+        $this->externalAttrCode = $externalAttrCode;
     }
 
     /**
@@ -80,12 +88,13 @@ class ExternalCategoryManagement extends AbstractRowModifier
                 $categories = $this->extractCategoriesFromString($item['categories']);
             }
 
-            foreach ($categories as $category) {
+            foreach ($categories as $index => $category) {
                 if (isset($this->categoryMapping[$category])) {
+                    unset($categories[$index]);
                     $categories = array_merge($categories, $this->categoryMapping[$category]);
                 }
             }
-            
+
             if (isset($this->productCategoryMapping[$identifier])) {
                 $categories = array_merge($categories, $this->productCategoryMapping[$identifier]);
             }
@@ -102,12 +111,12 @@ class ExternalCategoryManagement extends AbstractRowModifier
         $categoryCollection = $this->categoryCollectionFactory->create();
         $categoryCollection->addNameToResult();
         $categoryCollection->setStoreId(0);
-        $categoryCollection->addAttributeToSelect('external_id');
+        $categoryCollection->addAttributeToSelect($this->externalAttrCode);
 
         foreach ($categoryCollection as $category) {
             /** @var Category $category */
 
-            if (! $category->getData('external_id')) {
+            if (! $category->getData($this->externalAttrCode)) {
                 continue;
             }
 
@@ -122,7 +131,7 @@ class ExternalCategoryManagement extends AbstractRowModifier
                     }
                 }
 
-                foreach ($this->extractCategoriesFromString($category->getData('external_id')) as $importGroup) {
+                foreach ($this->extractCategoriesFromString($category->getData($this->externalAttrCode)) as $importGroup) {
                     $importGroup = trim($importGroup);
 
                     if (! isset($this->categoryMapping[trim($importGroup)])) {
@@ -134,7 +143,8 @@ class ExternalCategoryManagement extends AbstractRowModifier
             }
         }
 
-        if (! $this->categoryMapping) {
+        if (!$this->categoryMapping) {
+            $this->categoryMapping = [];
             return [];
         }
 
