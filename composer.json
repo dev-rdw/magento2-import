@@ -1,5 +1,5 @@
 {
-    "name": "dev-rdw/magento2-import",
+    "name": "honl/magento2-import",
     "description": "",
     "require": {
         "php": "~7.1.0 || ~7.2.0",
