@@ -33,7 +33,7 @@ class AttributeOptionCreator extends AbstractRowModifier
     /**
      * @var ProductAttributeRepositoryInterface
      */
-    private $attributeRepository;
+    protected $attributeRepository;
 
     /**
      * Entity attribute option model factory
