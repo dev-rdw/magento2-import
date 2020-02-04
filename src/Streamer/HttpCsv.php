@@ -7,7 +7,7 @@
 namespace Ho\Import\Streamer;
 
 use Bakame\Psr7\Adapter\StreamWrapper;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Psr\Cache\CacheItemPoolInterface as CachePool;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -65,7 +65,7 @@ class HttpCsv
     public $headers;
 
     /**
-     * @var Log
+     * @var ImportProfileLogInterface
      */
     private $log;
 
@@ -73,7 +73,7 @@ class HttpCsv
      * @param CachePool     $cacheItemPool
      * @param ConsoleOutput $consoleOutput
      * @param string        $requestUrl
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      * @param string        $requestMethod
      * @param array         $requestOptions
      * @param int           $ttl
@@ -83,7 +83,7 @@ class HttpCsv
         CachePool $cacheItemPool,
         ConsoleOutput $consoleOutput,
         string $requestUrl,
-        Log $log,
+        ImportProfileLogInterface $log,
         string $requestMethod = 'GET',
         array $requestOptions = [],
         int $ttl = 12 * 3600,

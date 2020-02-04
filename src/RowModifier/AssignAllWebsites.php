@@ -13,7 +13,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -27,7 +27,7 @@ class AssignAllWebsites extends AbstractRowModifier
 
     public function __construct(
         ConsoleOutput $consoleOutput,
-        Log $log,
+        ImportProfileLogInterface $log,
         StoreManagerInterface $storeManager
     ) {
         parent::__construct($consoleOutput, $log);

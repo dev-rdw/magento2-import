@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\UrlRewrite\Model\UrlFinderInterface;
@@ -74,7 +74,7 @@ class ProductUrlKey extends AbstractRowModifier
 
     /**
      * @param ConsoleOutput                      $consoleOutput
-     * @param Log                                $log
+     * @param ImportProfileLogInterface                                $log
      * @param \Magento\Catalog\Model\Product\Url $urlKeyFormatter
      * @param UrlFinderInterface                 $urlFinderInterface
      * @param ScopeConfigInterface               $scopeConfig
@@ -82,7 +82,7 @@ class ProductUrlKey extends AbstractRowModifier
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
-        Log $log,
+        ImportProfileLogInterface $log,
         \Magento\Catalog\Model\Product\Url $urlKeyFormatter,
         UrlFinderInterface $urlFinderInterface,
         ScopeConfigInterface $scopeConfig,

@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Catalog\Model\Category;
 use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCollectionFactory;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory as ProductCollectionFactory;
@@ -51,7 +51,7 @@ class ExternalCategoryManagement extends AbstractRowModifier
      * @param ConsoleOutput             $consoleOutput
      * @param CategoryCollectionFactory $categoryCollectionFactory
      * @param ProductCollectionFactory  $productCollectionFactory
-     * @param Log                       $log
+     * @param ImportProfileLogInterface                       $log
      * @param string                    $externalAttrCode
      * @param string[]                  $externalCategoryPathFilter
      */
@@ -59,7 +59,7 @@ class ExternalCategoryManagement extends AbstractRowModifier
         ConsoleOutput $consoleOutput,
         CategoryCollectionFactory $categoryCollectionFactory,
         ProductCollectionFactory $productCollectionFactory,
-        Log $log,
+        ImportProfileLogInterface $log,
         $externalAttrCode = 'external_id',
         $externalCategoryPathFilter = []
     ) {

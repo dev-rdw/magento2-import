@@ -5,7 +5,7 @@
  */
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -53,14 +53,14 @@ class NonUniqueSourceIterator extends AbstractRowModifier
      *                                   First argument of the \Closure will be the $item
      * @param \Iterator     $iterator    \Ho\Import\Streamer\FileXml or \Ho\Import\Streamer\HttpXml
      * @param string        $nodeName    Array key where the data will be stored in the parent
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
         \Closure $identifier,
         \Iterator $iterator,
         $nodeName,
-        Log $log
+        ImportProfileLogInterface $log
     ) {
         parent::__construct($consoleOutput, $log);
 

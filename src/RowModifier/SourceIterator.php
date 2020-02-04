@@ -6,7 +6,7 @@
 namespace Ho\Import\RowModifier;
 
 use Closure;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Iterator;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -59,14 +59,14 @@ class SourceIterator extends AbstractRowModifier
      *                                   to identify the parent. Can return a String or Array.
      *                                   First argument of the \Closure will be the item
      * @param Iterator      $iterator    \Ho\Import\Streamer\FileXml or \Ho\Import\Streamer\HttpXml
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      * @param string        $mode        self::MODE_ADD or self::MODE_CREATE
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
         Closure $identifier,
         Iterator $iterator,
-        Log $log,
+        ImportProfileLogInterface $log,
         $mode = self::MODE_CREATE
     ) {
         parent::__construct($consoleOutput, $log);

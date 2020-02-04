@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -17,14 +17,14 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 abstract class AbstractRowModifier
 {
     /**
-     * Log items to the console.
+     * ImportProfileLogInterface items to the console.
      *
      * @var ConsoleOutput
      */
     protected $consoleOutput;
 
     /**
-     * @var Log
+     * @var ImportProfileLogInterface
      */
     protected $log;
 
@@ -37,9 +37,9 @@ abstract class AbstractRowModifier
 
     /**
      * @param ConsoleOutput $consoleOutput
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      */
-    public function __construct(ConsoleOutput $consoleOutput, Log $log)
+    public function __construct(ConsoleOutput $consoleOutput, ImportProfileLogInterface $log)
     {
         $this->consoleOutput = $consoleOutput;
         $this->log = $log;

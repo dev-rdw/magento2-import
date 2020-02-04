@@ -8,7 +8,7 @@ namespace Ho\Import\RowModifier;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Promise;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -73,12 +73,12 @@ class ImageDownloader extends AbstractRowModifier
     /**
      * @param DirectoryList $directoryList
      * @param ConsoleOutput $consoleOutput
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      */
     public function __construct(
         DirectoryList $directoryList,
         ConsoleOutput $consoleOutput,
-        Log $log
+        ImportProfileLogInterface $log
     ) {
         parent::__construct($consoleOutput, $log);
 

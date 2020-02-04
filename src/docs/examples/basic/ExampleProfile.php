@@ -44,7 +44,7 @@ class ExampleProfile extends \Ho\Import\Model\ImportProfile
      * @param \Magento\Framework\App\ObjectManagerFactory     $objectManagerFactory
      * @param \Symfony\Component\Stopwatch\Stopwatch          $stopwatch
      * @param \Symfony\Component\Console\Output\ConsoleOutput $consoleOutput
-     * @param \Ho\Import\Logger\Log                           $log
+     * @param \Ho\Import\Api\ImportProfileLogInterface                           $log
      * @param \Ho\Import\Streamer\FileXmlFactory              $xmlStreamerFactory
      * @param \Ho\Import\RowModifier\SourceIteratorFactory    $sourceIteratorFactory
      * @param \Ho\Import\RowModifier\ItemMapperFactory        $itemMapperFactory
@@ -53,7 +53,7 @@ class ExampleProfile extends \Ho\Import\Model\ImportProfile
         \Magento\Framework\App\ObjectManagerFactory $objectManagerFactory,
         \Symfony\Component\Stopwatch\Stopwatch $stopwatch,
         \Symfony\Component\Console\Output\ConsoleOutput $consoleOutput,
-        \Ho\Import\Logger\Log $log,
+        \Ho\Import\Api\ImportProfileLogInterface $log,
         \Ho\Import\Streamer\FileXmlFactory $xmlStreamerFactory,
         \Ho\Import\RowModifier\SourceIteratorFactory $sourceIteratorFactory,
         \Ho\Import\RowModifier\ItemMapperFactory $itemMapperFactory

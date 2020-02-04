@@ -13,7 +13,7 @@
 
 namespace Ho\Import\Plugin;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PrintImportLogWhenCliPlugin
@@ -22,7 +22,7 @@ class PrintImportLogWhenCliPlugin
 
     protected $log;
 
-    public function __construct(ConsoleOutput $consoleOutput, Log $log)
+    public function __construct(ConsoleOutput $consoleOutput, ImportProfileLogInterface $log)
     {
         $this->consoleOutput = $consoleOutput;
         $this->log = $log;

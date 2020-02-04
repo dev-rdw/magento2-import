@@ -7,7 +7,7 @@
 namespace Ho\Import\RowModifier;
 
 use Ho\Import\Helper\LineFormatterMulti;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Catalog\Model\Category;
 use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory as CategoryCollectionFactory;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -37,13 +37,13 @@ class ProductCategoryMargin extends AbstractRowModifier
 
     /**
      * @param ConsoleOutput             $consoleOutput
-     * @param Log                       $log
+     * @param ImportProfileLogInterface                       $log
      * @param CategoryCollectionFactory $categoryCollectionFactory
      * @param LineFormatterMulti        $lineFormatterMulti
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
-        Log $log,
+        ImportProfileLogInterface $log,
         CategoryCollectionFactory $categoryCollectionFactory,
         LineFormatterMulti $lineFormatterMulti
     ) {

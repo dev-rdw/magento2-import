@@ -11,7 +11,7 @@ namespace ReachDigital\Waardijk\Import;
 use GuzzleHttp\Exception\GuzzleException;
 use Ho\Import\Helper\ItemMapperTools;
 use Ho\Import\Helper\LineFormatterMulti;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Ho\Import\RowModifier;
 use Ho\Import\Streamer\FileCsvFactory;
 use Ho\Import\Streamer\HttpCsvFactory;
@@ -124,7 +124,7 @@ class ProductImport extends ImportProfile
      * @param ObjectManagerFactory                          $objectManagerFactory
      * @param Stopwatch                                     $stopwatch
      * @param ConsoleOutput                                 $consoleOutput
-     * @param Log                                           $log
+     * @param ImportProfileLogInterface                                           $log
      * @param RowModifier\SourceIteratorFactory             $sourceIteratorFactory
      * @param FileCsvFactory                                $fileCsvFactory
      * @param RowModifier\ItemMapperFactory                 $itemMapperFactory
@@ -153,7 +153,7 @@ class ProductImport extends ImportProfile
         ObjectManagerFactory $objectManagerFactory,
         Stopwatch $stopwatch,
         ConsoleOutput $consoleOutput,
-        Log $log,
+        ImportProfileLogInterface $log,
         RowModifier\SourceIteratorFactory $sourceIteratorFactory,
         FileCsvFactory $fileCsvFactory,
         RowModifier\ItemMapperFactory $itemMapperFactory,

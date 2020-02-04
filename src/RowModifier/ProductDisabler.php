@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class ProductDisabler extends AbstractRowModifier
@@ -37,14 +37,14 @@ class ProductDisabler extends AbstractRowModifier
      * @param ConsoleOutput                             $consoleOutput
      * @param \Magento\Framework\App\ResourceConnection $resource
      * @param string                                    $profile
-     * @param Log                                       $log
+     * @param ImportProfileLogInterface                                       $log
      * @param bool                                      $force
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
         \Magento\Framework\App\ResourceConnection $resource,
         string $profile,
-        Log $log,
+        ImportProfileLogInterface $log,
         bool $force = false
     ) {
         parent::__construct($consoleOutput, $log);

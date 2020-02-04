@@ -7,7 +7,7 @@
 namespace Ho\Import\Model;
 
 use Ho\Import\Api\ImportProfileInterface;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Framework\Phrase;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\App\ObjectManagerFactory;
@@ -38,7 +38,7 @@ abstract class ImportProfile implements ImportProfileInterface
     private $objectManagerFactory;
 
     /**
-     * @var Log
+     * @var ImportProfileInterface
      */
     protected $log;
 
@@ -46,13 +46,13 @@ abstract class ImportProfile implements ImportProfileInterface
      * @param ObjectManagerFactory $objectManagerFactory
      * @param Stopwatch            $stopwatch
      * @param ConsoleOutput        $consoleOutput
-     * @param Log                  $log
+     * @param ImportProfileLogInterface                  $log
      */
     public function __construct(
         ObjectManagerFactory $objectManagerFactory,
         Stopwatch $stopwatch,
         ConsoleOutput $consoleOutput,
-        Log $log
+        ImportProfileLogInterface $log
     ) {
         $this->objectManagerFactory = $objectManagerFactory;
         $this->stopwatch = $stopwatch;

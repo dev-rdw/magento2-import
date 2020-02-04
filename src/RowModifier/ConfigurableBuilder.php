@@ -7,7 +7,7 @@
 namespace Ho\Import\RowModifier;
 
 use Ho\Import\Helper\LineFormatterMulti;
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class ConfigurableBuilder extends AbstractRowModifier
@@ -62,7 +62,7 @@ class ConfigurableBuilder extends AbstractRowModifier
      * @param \Closure           $attributes
      * @param \Closure[]         $configurableValues
      * @param \Closure[]         $simpleValues
-     * @param Log                $log
+     * @param ImportProfileLogInterface                $log
      * @param \Closure           $splitOnValue
      * @param bool               $enableFilterConfigurable
      */
@@ -73,7 +73,7 @@ class ConfigurableBuilder extends AbstractRowModifier
         $attributes,
         $configurableValues,
         $simpleValues,
-        Log $log,
+        ImportProfileLogInterface $log,
         $splitOnValue = null,
         $enableFilterConfigurable = true
     ) {

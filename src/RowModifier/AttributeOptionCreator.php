@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Catalog\Api\ProductAttributeOptionManagementInterface as OptionManagement;
 use Magento\Catalog\Api\ProductAttributeRepositoryInterface;
 use Magento\Eav\Model\Entity\Attribute\OptionFactory;
@@ -54,7 +54,7 @@ class AttributeOptionCreator extends AbstractRowModifier
      * @param ProductAttributeRepositoryInterface $attributeRepository
      * @param OptionFactory                       $optionFactory
      * @param ConsoleOutput                       $consoleOutput
-     * @param Log                                 $log
+     * @param ImportProfileLogInterface           $log
      * @param string[]                            $attributes
      */
     public function __construct(
@@ -62,7 +62,7 @@ class AttributeOptionCreator extends AbstractRowModifier
         ProductAttributeRepositoryInterface $attributeRepository,
         OptionFactory $optionFactory,
         ConsoleOutput $consoleOutput,
-        Log $log,
+        ImportProfileLogInterface $log,
         $attributes = []
     ) {
         parent::__construct($consoleOutput, $log);

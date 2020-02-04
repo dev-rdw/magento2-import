@@ -6,7 +6,7 @@
 
 namespace Ho\Import\Streamer;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Magento\Framework\Exception\FileSystemException;
 use Magento\Framework\Filesystem\DirectoryList;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -38,7 +38,7 @@ class FileCsv
     private $directoryList;
 
     /**
-     * @var Log
+     * @var ImportProfileLogInterface
      */
     private $log;
 
@@ -51,14 +51,14 @@ class FileCsv
      * @param ConsoleOutput $consoleOutput
      * @param DirectoryList $directoryList
      * @param string        $requestFile Relative or absolute path to filename.
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      * @param array         $headers
      */
     public function __construct(
         ConsoleOutput $consoleOutput,
         DirectoryList $directoryList,
         string $requestFile,
-        Log $log,
+        ImportProfileLogInterface $log,
         array $headers = []
     ) {
         $this->consoleOutput = $consoleOutput;

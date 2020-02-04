@@ -6,7 +6,7 @@
 
 namespace Ho\Import\RowModifier;
 
-use Ho\Import\Logger\Log;
+use Ho\Import\Api\ImportProfileLogInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -34,10 +34,10 @@ class ItemMapper extends AbstractRowModifier
 
     /**
      * @param ConsoleOutput $consoleOutput
-     * @param Log           $log
+     * @param ImportProfileLogInterface           $log
      * @param array         $mapping
      */
-    public function __construct(ConsoleOutput $consoleOutput, Log $log, array $mapping = [])
+    public function __construct(ConsoleOutput $consoleOutput, ImportProfileLogInterface $log, array $mapping = [])
     {
         parent::__construct($consoleOutput, $log);
 
