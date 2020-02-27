@@ -133,11 +133,10 @@ class ProductUrlKey extends AbstractRowModifier
         $urlKey = mb_strtolower($urlKey);
         $options = [
             $this->urlKeyFormatter->formatUrlKey($urlKey),
-            $this->urlKeyFormatter->formatUrlKey($identifier . '-' . $urlKey),
-            $this->urlKeyFormatter->formatUrlKey($identifier . '-' . $urlKey . '-1'),
-            $this->urlKeyFormatter->formatUrlKey($identifier . '-' . $urlKey . '-2'),
-            $this->urlKeyFormatter->formatUrlKey($identifier . '-' . $urlKey . '-3'),
-            $this->urlKeyFormatter->formatUrlKey($identifier . '-' . $urlKey . '-4'),
+            $this->urlKeyFormatter->formatUrlKey($urlKey . '-1'),
+            $this->urlKeyFormatter->formatUrlKey($urlKey . '-2'),
+            $this->urlKeyFormatter->formatUrlKey($urlKey . '-3'),
+            $this->urlKeyFormatter->formatUrlKey($urlKey . '-4'),
         ];
         $options = array_unique($options);
 
